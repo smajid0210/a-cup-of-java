@@ -1,0 +1,32 @@
+<html>
+<head><title>Home Page</title></head>
+<body>
+<h1>Hello !</h1>
+<p>Welcome to <span th:text="${appName}">Our App</span></p>
+
+<button id="home" onclick="location.href='/'">Go to Home Page</button>
+<button id="createblog" onclick="location.href='/createnewblog'">Create New Blog</button>
+<button id="bulkuploadblog" onclick="location.href='/bulkuploadblog'">Bulk Upload Blog</button>
+<br>
+<br>
+<table>
+    <thead>
+    <tr>
+        <th>BlogID</th>
+        <th>Title</th>
+        <th>AuthorID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog : ${bloglist}">
+        <td th:text="${blog.blogid}"></td>
+        <td th:text="${blog.title}"></td>
+        <td th:text="${blog.authorid}"></td>
+        <td><button th:id="${blog.blogid}" onclick="location.href='/editblog/'+(this.id)">Edit</button></td>
+        <td><button th:id="${blog.blogid}" onclick="location.href='/deleteblog/'+(this.id)">Delete</button></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Upload Blogs using CSV</h1>
+<br><br>
+<div th:if="${param.bulkerror}" class="alert alert-danger" role="alert">
+    <strong>Error:</strong> Authorid, Title or Description is not set properly in CSV.
+</div>
+
+<form action="/bulkuploadblog" method="post" enctype="multipart/form-data">
+    <input type="file" name="blogFile">
+    <button type="submit">Upload</button>
+</form>
+<br>
+<button id="home" onclick="location.href='/'">Go to Home Page</button>
+<button id="viewallblogs" onclick="location.href='/viewallblogs'">View All Blogs</button>
+</body>
+</body>
+</html>

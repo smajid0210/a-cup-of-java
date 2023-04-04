@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit This Blog</title>
+</head>
+<body>
+<h3>Fill up the Details to Complete the Blog:</h3>
+<div th:if="${param.editerror}" class="alert alert-danger" role="alert">
+    <strong>Error:</strong> AuthorID is not set properly.
+</div>
+<form th:action="@{/editblog}" method="post" th:object="${blog}">
+    <label for="blogid">ID:</label>
+    <input type="text" id="blogid" readonly th:field="*{blogid}" />
+    <br />
+    <label for="title">Title:</label>
+    <input type="text"  required id="title" th:field="*{title}" />
+    <br />
+    <label for="description">Content:</label>
+    <textarea id="description" required th:field="*{description}"></textarea>
+    <br />
+    <label for="authorid">AuthorID:</label>
+    <input type="text" required id="authorid" th:field="*{authorid}" />
+    <br />
+    <button type="submit">Update Blog</button>
+</form>
+<br>
+<button id="home" onclick="location.href='/'">Go to Home Page</button>
+<button id="viewallblogs" onclick="location.href='/viewallblogs'">View All Blogs</button>
+</body>
+</html>
